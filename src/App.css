@@ -30,17 +30,18 @@ main {
 main::after {
   content: '';
   position: absolute;
-  right: clamp(18px, 4vw, 48px);
+  left: 50%;
   bottom: 0;
   z-index: 0;
   width: clamp(125px, 19vw, 215px);
   aspect-ratio: 1;
   background-image: url('./assets/ghost.png');
   background-repeat: no-repeat;
-  background-position: right bottom;
+  background-position: center bottom;
   background-size: contain;
   opacity: 0.94;
   pointer-events: none;
+  transform: translateX(-50%);
 }
 
 h1,
@@ -224,8 +225,10 @@ input[type='file']::file-selector-button:active {
 }
 
 button[type='submit'] {
+  display: block;
   min-width: 160px;
   min-height: 52px;
+  margin: 0 auto;
   padding: 13px 25px;
   color: #171513;
   font-family:
@@ -296,7 +299,6 @@ button[type='submit']:disabled {
   }
 
   main::after {
-    right: 8px;
     width: 130px;
   }
 
