@@ -721,3 +721,20 @@ button[type='submit']:disabled {
     width: 100%;
   }
 }
+
+/* iPhone portrait fix — Event Details fields only */
+@media (max-width: 480px) {
+  input[type='date'],
+  input[type='time'] {
+    display: block;
+    box-sizing: border-box;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    inline-size: 100% !important;
+    min-inline-size: 0 !important;
+    max-inline-size: 100% !important;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+}
