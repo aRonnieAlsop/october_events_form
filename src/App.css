@@ -7,6 +7,60 @@
   text-rendering: optimizeLegibility;
 }
 
+.ivcc-home-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: fit-content;
+  margin: 0 auto 24px;
+  color: #171513;
+  font-family:
+    'Courier New',
+    Courier,
+    monospace;
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.ivcc-home-link img {
+  display: block;
+  width: clamp(86px, 9vw, 116px);
+  height: clamp(86px, 9vw, 116px);
+  object-fit: contain;
+  opacity: 0.71;
+}
+
+.ivcc-home-link span {
+  position: relative;
+  margin-top: 7px;
+  padding-bottom: 5px;
+}
+
+.ivcc-home-link span::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  background-color: #171513;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 180ms ease;
+}
+
+.ivcc-home-link:hover span::after,
+.ivcc-home-link:focus-visible span::after {
+  transform: scaleX(1);
+}
+
+.ivcc-home-link:focus-visible {
+  outline: none;
+}
+
 main {
   position: relative;
   isolation: isolate;
@@ -107,6 +161,19 @@ legend {
   line-height: 1.2;
   letter-spacing: 0.075em;
   text-transform: uppercase;
+}
+
+/* Keep the first radio choices close to the first heading. */
+.submission-type {
+  padding-top: 20px;
+}
+
+.submission-type legend {
+  margin-bottom: 0;
+}
+
+.submission-options {
+  margin-top: 6px;
 }
 
 fieldset p {
@@ -224,6 +291,64 @@ input[type='file']::file-selector-button:active {
   transform: translateY(1px);
 }
 
+/* Chamber membership question. */
+.membership-question {
+  margin-top: 34px;
+  padding-top: 30px;
+  border-top: 1px solid rgba(23, 21, 19, 0.32);
+}
+
+.membership-heading {
+  margin-bottom: 12px;
+  font-weight: 700;
+  letter-spacing: 0.045em;
+}
+
+.membership-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 30px;
+}
+
+.membership-options label {
+  margin-bottom: 0;
+}
+
+.nonmember-note {
+  margin-top: 20px;
+  padding: 20px 22px;
+  background-color: rgba(255, 253, 248, 0.58);
+  border-left: 4px solid #171513;
+}
+
+.nonmember-note p {
+  margin: 0 0 14px;
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.nonmember-note p:last-child {
+  margin-bottom: 0;
+}
+
+.nonmember-note a {
+  color: #171513;
+  font-weight: 700;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+.nonmember-note a:hover,
+.nonmember-note a:focus-visible {
+  text-decoration-thickness: 3px;
+}
+
+.nonmember-note .zeffy-note {
+  font-size: 0.82rem;
+  line-height: 1.55;
+}
+
+/* Submit button. */
 button[type='submit'] {
   display: block;
   min-width: 160px;
@@ -272,6 +397,178 @@ button[type='submit']:disabled {
   border-left: 4px solid #171513;
 }
 
+/*
+  Email contact:
+  only "Email us" appears initially.
+  The underline and full address appear on hover or keyboard focus.
+*/
+.questions-contact {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px 12px;
+  margin: 38px auto 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.questions-label {
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.questions-contact a {
+  position: relative;
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 3px 1px 6px;
+  color: #171513;
+  font-weight: 700;
+  letter-spacing: 0.025em;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+  outline: none;
+}
+
+.questions-contact a::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  background-color: #171513;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 180ms ease;
+}
+
+.email-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.email-address {
+  width: 0;
+  max-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(-5px);
+  transition:
+    width 220ms ease,
+    max-width 220ms ease,
+    opacity 160ms ease,
+    transform 220ms ease;
+}
+
+.questions-contact a:hover::after,
+.questions-contact a:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.questions-contact a:hover .email-address,
+.questions-contact a:focus-visible .email-address {
+  width: auto;
+  max-width: 310px;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Successful-submission pop-up. */
+.success-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background-color: rgba(18, 16, 15, 0.72);
+  backdrop-filter: blur(3px);
+}
+
+.success-dialog {
+  width: min(520px, 100%);
+  padding:
+    clamp(32px, 6vw, 52px)
+    clamp(24px, 6vw, 48px);
+  color: #171513;
+  text-align: center;
+  background-color: #e4d0ac;
+  border: 2px solid #171513;
+  box-shadow: 12px 12px 0 rgba(23, 21, 19, 0.55);
+}
+
+.success-envelope {
+  margin-bottom: 14px;
+  font-family:
+    Georgia,
+    'Times New Roman',
+    serif;
+  font-size: 2.8rem;
+  line-height: 1;
+}
+
+.success-dialog h2 {
+  margin: 0 0 18px;
+  font-family:
+    Arial Narrow,
+    Arial,
+    Helvetica,
+    sans-serif;
+  font-size: clamp(1.8rem, 6vw, 2.7rem);
+  line-height: 1;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.success-dialog p {
+  margin: 0 auto 28px;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.success-close {
+  min-width: 140px;
+  min-height: 50px;
+  padding: 12px 24px;
+  color: #171513;
+  font-family:
+    'Courier New',
+    Courier,
+    monospace;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background-color: transparent;
+  border: 2px solid #171513;
+  border-radius: 2px;
+  cursor: pointer;
+  transition:
+    color 160ms ease,
+    background-color 160ms ease,
+    transform 160ms ease;
+}
+
+.success-close:hover,
+.success-close:focus-visible {
+  color: #f7ead1;
+  background-color: #171513;
+  outline: none;
+}
+
+.success-close:active {
+  transform: translateY(1px);
+}
+
 @media (max-width: 760px) {
   main {
     padding:
@@ -286,6 +583,10 @@ button[type='submit']:disabled {
 
   fieldset {
     padding: 29px 0 33px;
+  }
+
+  .submission-type {
+    padding-top: 16px;
   }
 }
 
@@ -335,7 +636,46 @@ button[type='submit']:disabled {
     margin: 0 0 12px;
   }
 
+  .nonmember-note {
+    padding: 17px;
+  }
+
   button[type='submit'] {
+    width: 100%;
+  }
+
+  .questions-contact {
+    display: block;
+    margin-top: 32px;
+  }
+
+  .questions-label {
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .questions-contact a {
+    max-width: 100%;
+    font-size: 0.9rem;
+  }
+
+  .email-address {
+    white-space: normal;
+  }
+
+  .questions-contact a:hover .email-address,
+  .questions-contact a:focus-visible .email-address {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    margin-top: 3px;
+  }
+
+  .success-dialog {
+    box-shadow: 7px 7px 0 rgba(23, 21, 19, 0.55);
+  }
+
+  .success-close {
     width: 100%;
   }
 }

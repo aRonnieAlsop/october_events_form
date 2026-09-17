@@ -17,8 +17,8 @@ body {
 }
 
 /*
-  A fixed background prevents the photograph from enlarging
-  to cover the full height of the long form.
+  The fixed background stays sized to the browser window instead
+  of enlarging to cover the full height of the long form.
 */
 body::before {
   content: '';
@@ -57,33 +57,16 @@ img {
 }
 
 #root {
+  position: relative;
+  z-index: 1;
   width: 100%;
   min-height: 100vh;
   padding: 26px 20px 48px;
 }
 
-/* Logo floats over the photograph, outside the form panel. */
-#root::before {
-  content: '';
-  display: block;
-  width: clamp(86px, 9vw, 116px);
-  aspect-ratio: 1;
-  margin: 0 auto 24px;
-  background-image: url('./assets/logo.png');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  opacity: 0.71;
-}
-
 @media (max-width: 600px) {
   #root {
     padding: 18px 8px 28px;
-  }
-
-  #root::before {
-    width: 82px;
-    margin-bottom: 16px;
   }
 
   body::before {
