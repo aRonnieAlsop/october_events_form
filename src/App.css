@@ -86,9 +86,9 @@ main::after {
   content: '';
   position: absolute;
   left: 50%;
-  bottom: 0;
+  bottom: 62px;
   z-index: 0;
-  width: clamp(125px, 19vw, 215px);
+  width: clamp(145px, 22vw, 245px);
   aspect-ratio: 1;
   background-image: url('./assets/ghost.png');
   background-repeat: no-repeat;
