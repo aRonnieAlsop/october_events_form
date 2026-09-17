@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react'
 import { supabase } from '../supabaseClient.js'
+import './App.css'
 
 const initialForm = {
   submission_type: 'event',
