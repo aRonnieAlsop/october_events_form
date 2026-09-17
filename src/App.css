@@ -592,18 +592,20 @@ button[type='submit']:disabled {
     padding-top: 16px;
   }
 }
-
 @media (max-width: 480px) {
   main {
+    width: 100%;
+    max-width: 100%;
     padding:
       30px
       17px
-      160px;
+      205px;
     background-color: rgba(228, 208, 172, 0.97);
   }
 
   main::after {
-    width: 130px;
+    bottom: 12px;
+    width: 175px;
   }
 
   h1 {
@@ -612,81 +614,110 @@ button[type='submit']:disabled {
   }
 
   main > p {
-    margin-bottom: 36px;
-    text-align: left;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto 36px;
+    text-align: center;
+  }
+
+  form,
+  fieldset,
+  .membership-question,
+  .nonmember-information {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
   }
 
   legend {
+    max-width: 100%;
     font-size: 1.18rem;
   }
 
   label {
-    font-size: 1rem;
-    letter-spacing: 0.04em;
+    max-width: 100%;
+    font-size: 18px;
+    letter-spacing: 0.02em;
+  }
+
+  input:not([type='radio']):not([type='checkbox']),
+  textarea {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
   }
 
   input[type='date'],
   input[type='time'] {
+    width: 100%;
+    min-width: 0;
     max-width: 100%;
   }
 
   input[type='file'] {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    overflow: hidden;
     font-size: 0.9rem;
   }
 
   input[type='file']::file-selector-button {
     display: block;
+    max-width: 100%;
     margin: 0 0 12px;
   }
 
-  .nonmember-note {
-    padding: 17px;
+  textarea {
+    overflow-wrap: anywhere;
   }
 
   button[type='submit'] {
     width: 100%;
+    max-width: 100%;
   }
 
   .questions-contact {
-    display: block;
-    margin-top: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    width: 100%;
+    max-width: 100%;
+    margin: 32px auto 0;
+    text-align: center;
   }
 
   .questions-label {
     display: block;
-    margin-bottom: 8px;
+    margin: 0;
   }
 
   .questions-contact a {
+    display: inline-flex;
+    width: fit-content;
     max-width: 100%;
-    font-size: 0.9rem;
+    margin: 0 auto;
+    font-size: 0.95rem;
+    text-align: center;
   }
 
+  /*
+    Hide the expanding address on touch-sized screens.
+    Tapping Email Us still opens the mail application.
+  */
   .email-address {
-    white-space: normal;
-  }
-
-  .questions-contact a:hover .email-address,
-  .questions-contact a:focus-visible .email-address {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    margin-top: 3px;
+    display: none;
   }
 
   .success-dialog {
+    max-width: calc(100vw - 34px);
     box-shadow: 7px 7px 0 rgba(23, 21, 19, 0.55);
   }
 
   .success-close {
     width: 100%;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    transition: none !important;
   }
 }
