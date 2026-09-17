@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap');
+
 :root {
   font-family:
-    'Courier New',
-    Courier,
+    'DM Mono',
     monospace;
+  font-weight: 400;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
 }
@@ -14,10 +16,9 @@
   width: fit-content;
   margin: 0 auto 24px;
   color: #171513;
-  font-family:
-    'Courier New',
-    Courier,
-    monospace;
+font-family:
+  'DM Mono',
+  monospace;
   font-size: 0.88rem;
   font-weight: 700;
   letter-spacing: 0.11em;
@@ -186,9 +187,13 @@ fieldset p {
 label {
   display: inline-block;
   margin-bottom: 8px;
-  font-size: clamp(1.02rem, 1.7vw, 1.1rem);
-  line-height: 1.5;
-  letter-spacing: 0.07em;
+  font-family:
+    'DM Mono',
+    monospace;
+  font-size: clamp(18px, 1.7vw, 21px);
+  font-weight: 400;
+  line-height: 1.55;
+  letter-spacing: 0.025em;
 }
 
 input:not([type='radio']):not([type='checkbox']),
@@ -264,10 +269,9 @@ input[type='file']::file-selector-button {
   margin: 0 14px 0 0;
   padding: 13px 21px;
   color: #171513;
-  font-family:
-    'Courier New',
-    Courier,
-    monospace;
+font-family:
+  'DM Mono',
+  monospace;
   font-size: 0.98rem;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -356,10 +360,9 @@ button[type='submit'] {
   margin: 0 auto;
   padding: 13px 25px;
   color: #171513;
-  font-family:
-    'Courier New',
-    Courier,
-    monospace;
+font-family:
+  'DM Mono',
+  monospace;
   font-size: 1rem;
   font-weight: 700;
   letter-spacing: 0.12em;
